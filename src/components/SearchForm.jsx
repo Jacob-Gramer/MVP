@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function SearchForm() {
+function SearchForm({ handleSearch }) {
   const [name, setName] = useState('');
   const [plat, setPlat] = useState('');
 
@@ -20,9 +20,7 @@ function SearchForm() {
 
   const onSearch = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/${name}/${plat}/stats`)
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+    handleSearch(name, plat);
   };
 
   return (

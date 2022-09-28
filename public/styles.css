@@ -18,20 +18,37 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  height: 100%;
-  width: 100%;
-  background-color: #990000;
+  display: flex;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 .banner {
-  display: flex;
-  height: 45vw;
-
+  height: 35vh;
   background-image: url(./assets/OctaneBanner.png);
   background-repeat: no-repeat;
   background-size: cover;
+  border-bottom: 3px solid black;
 }
 
 .username_form {
@@ -39,12 +56,12 @@ body {
   padding-top: 10vw;
   text-align: left;
   justify-content: space-around;
-  height: 75%;
+  height: 10vh;
   width: 50%;
 }
 
 .name_input {
-  width: 125%;
+  width: 15vw;
   margin-bottom: 2%;
 }
 
@@ -52,3 +69,32 @@ body {
   margin-bottom: 2%;
 }
 
+#content_body {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.news_stats {
+  display: inline-block;
+  height: 65vh;
+  background-color: white;
+  text-align: center;
+  width: 50vw;
+  border-right: 1px solid black;
+}
+
+#article_img {
+  object-fit: contain;
+}
+
+#carousel_view {
+  justify-content: space-around;
+}
+
+.carousel_captions {
+  height: auto;
+  margin-bottom: 5%;
+  background-color: rgba(128, 128, 128, 0.877);
+  border-radius: 5%;
+}
