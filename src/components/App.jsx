@@ -8,10 +8,14 @@ import NewsView from './NewsView.jsx';
 function App() {
   const [rankData, setRankData] = useState({});
   const [news, setNews] = useState([]);
+  const [pred, setPred] = useState(0);
 
   const handleSearch = (name, plat) => {
     axios.get(`http://localhost:8080/${name}/${plat}/stats`)
       .then((response) => setRankData(response.data))
+      .catch((err) => console.error(err))
+      .then(() => axios.get(`http://localhost:8080/${plat}/rp`))
+      .then((response) => setPred(response.data.RP[plat].val))
       .catch((err) => console.error(err));
   };
 
@@ -30,7 +34,7 @@ function App() {
           <NewsView news={news} />
         </span>
         <span className="news_stats">
-          <StatsView rankData={rankData} />
+          <StatsView rankData={rankData} pred={pred} />
         </span>
       </div>
     </div>

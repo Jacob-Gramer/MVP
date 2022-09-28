@@ -14,10 +14,16 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/:username/:platform/stats', (req, res) => {
-  const { user, plat } = req.params;
-  axios.get(`${api}/bridge?auth=${auth}&player=${user}&platform=${plat}&removeMerged=true`)
+  const { username, platform } = req.params;
+  axios.get(`${api}/bridge?auth=${auth}&player=${username}&platform=${platform}&removeMerged=true`)
     .then((response) => res.send(response.data.global))
     .catch((err) => res.send(err));
+});
+
+app.get('/:platform/rp', (req, res) => {
+  axios.get(`${api}predator?auth=${auth}`)
+    .then((response) => res.send(response.data))
+    .catch((err) => console.error(err));
 });
 
 app.get('/news', (req, res) => {
