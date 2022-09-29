@@ -32,7 +32,7 @@ function SearchForm({ handleSearch }) {
         >
           <Form.Control className="name_input" type="text" placeholder="Search for Username" onChange={(e) => onInput(e)} />
         </FloatingLabel>
-        <ButtonGroup type="checkbox">
+        <ButtonGroup id="button_group" type="checkbox">
           <Button variant="light" value="PC" onClick={(e) => onSelect(e)}>PC</Button>
           <Button variant="light" value="X1" onClick={(e) => onSelect(e)}>Xbox</Button>
           <Button variant="light" value="PS4" onClick={(e) => onSelect(e)}>Playstation</Button>

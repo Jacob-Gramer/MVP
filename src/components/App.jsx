@@ -4,6 +4,7 @@ import axios from 'axios';
 import SearchForm from './SearchForm.jsx';
 import StatsView from './StatsView.jsx';
 import NewsView from './NewsView.jsx';
+import Login from './Login.jsx';
 
 function App() {
   const [rankData, setRankData] = useState({});
@@ -30,13 +31,12 @@ function App() {
         <SearchForm handleSearch={handleSearch} />
       </div>
       <div id="content_body">
-        <span className="news_stats">
-          <NewsView news={news} />
-        </span>
-        <span className="news_stats">
-          <StatsView rankData={rankData} pred={pred} />
-        </span>
+        <StatsView rankData={rankData} pred={pred} />
       </div>
+      <div>
+        <NewsView news={news} />
+      </div>
+      <Login handleSearch={handleSearch} />
     </div>
   );
 }
