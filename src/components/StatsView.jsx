@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 function StatsView({ rankData, pred }) {
   if (Object.keys(rankData).length < 1) return (<div className="stats_view">No Player Chosen</div>);
-  console.log(rankData.rank);
   return (
     <div className="stats_view">
       <span className="rank_spans" id="player_rank">

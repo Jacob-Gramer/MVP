@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
@@ -39,14 +40,12 @@ function Login({ handleSearch }) {
   };
 
   const handleLogin = (e) => {
-    console.log(username, password);
     e.preventDefault();
     axios.post('http://localhost:8080/login', {
       username,
       password,
     })
       .then((response) => {
-        console.log(response);
         if (!response.data) {
           alert('Username or Password is Incorrect');
         } else {

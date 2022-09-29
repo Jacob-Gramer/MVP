@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const axios = require('axios');
 const path = require('path');
 const cors = require('cors');
+// eslint-disable-next-line no-unused-vars
 const db = require('../database/index');
 const model = require('../database/controllers');
 
